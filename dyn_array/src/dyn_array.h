@@ -63,6 +63,10 @@ typedef struct
 /// @return new dynamic array
 DArray* darray_create(size_t element_size);
 
+/// @brief Frees the array
+/// @param darray the array to free
+void darray_destroy(DArray* darray);
+
 /// @brief Reallocates the array's buffer to 'new_capacity'.
 /// @param darray the array to modify
 /// @param new_capacity the new capacity of the array
@@ -92,6 +96,12 @@ DArray* darray_create(size_t element_size)
 
 	DA_ASSERT(darray->buffer != NULL);
 	return darray;
+}
+
+void darray_destroy(DArray* darray)
+{
+	DA_FREE(darray->buffer);
+	DA_FREE(darray);
 }
 
 void darray_realloc(DArray* darray, size_t new_capacity)
