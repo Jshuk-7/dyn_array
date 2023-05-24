@@ -1,5 +1,5 @@
 #define DYN_ARRAY_IMPLEMENTATION
-#include "dyn_array.h"
+#include "../include/dyn_array.h"
 
 #include <stdio.h>
 
